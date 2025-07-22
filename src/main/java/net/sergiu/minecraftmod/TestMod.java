@@ -61,6 +61,7 @@ public class TestMod {
             event.accept(ModItems.ALEXANDRITE);
             event.accept(ModItems.RAW_ALEXANDRITE);
             event.accept(ModItems.ZARATHUSTRA);
+            event.accept(ModItems.GAUNUS);
         }
 
         if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
