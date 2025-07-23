@@ -23,6 +23,7 @@ public class ModCreativeModeTabs {
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.ALEXANDRITE.get());
                         output.accept(ModItems.RAW_ALEXANDRITE.get());
+                        output.accept(ModItems.CHISEL.get());
                     })
                     .build());
 
@@ -35,6 +36,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.RAW_ALEXANDRITE_BLOCK.get());
                         output.accept(ModBlocks.ALEXANDRITE_ORE.get());
                         output.accept(ModBlocks.ALEXANDRITE_DEEPSLATE_ORE.get());
+                        output.accept(ModBlocks.MAGIC_BLOCK.get());
                     })
                     .build());
 
@@ -44,6 +46,7 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.testmod.zarathustra_items"))
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.ZARATHUSTRA.get());
+                        output.accept(ModItems.GAUNUS.get());
                     })
                     .build());
 
