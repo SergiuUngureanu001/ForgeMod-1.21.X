@@ -63,6 +63,7 @@ public class TestMod {
             event.accept(ModItems.ZARATHUSTRA);
             event.accept(ModItems.GAUNUS);
             event.accept(ModItems.CHISEL);
+            event.accept(ModItems.AURORA_ASHES);
         }
 
         if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
@@ -71,6 +72,11 @@ public class TestMod {
             event.accept(ModBlocks.ALEXANDRITE_ORE);
             event.accept(ModBlocks.ALEXANDRITE_DEEPSLATE_ORE);
         }
+
+        if(event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
+            event.accept(ModItems.KOHLRABI);
+        }
+
 
     }
 
