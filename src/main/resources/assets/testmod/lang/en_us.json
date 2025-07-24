@@ -13,6 +13,19 @@
   "block.testmod.alexandrite_deepslate_ore":  "Block Of Alexandrite Deepslate Ore",
   "block.testmod.magic_block":  "Magic Block",
 
+  "block.testmod.alexandrite_stairs": "Alexandrite Stairs",
+  "block.testmod.alexandrite_slab": "Alexandrite Slab",
+
+  "block.testmod.alexandrite_button": "Alexandrite Button",
+  "block.testmod.alexandrite_pressure_plate": "Alexandrite Pressure Plate",
+
+  "block.testmod.alexandrite_fence": "Alexandrite Fence",
+  "block.testmod.alexandrite_fence_gate": "Alexandrite Fence Gate",
+  "block.testmod.alexandrite_wall": "Alexandrite Wall",
+
+  "block.testmod.alexandrite_door": "Alexandrite Door",
+  "block.testmod.alexandrite_trapdoor": "Alexandrite Trapdoor",
+
   "creativetab.testmod.alexandrite_items": "Alexandrite Items",
   "creativetab.testmod.alexandrite_bloks": "Alexandrite Blocks",
   "creativetab.testmod.zarathustra_items": "Zarathustra Items",
