@@ -21,5 +21,6 @@ public class ModFoodProperties {
             .effect(new MobEffectInstance(MobEffects.LUCK, 2500), 1.0f)
             .effect(new MobEffectInstance(MobEffects.NIGHT_VISION, 2500), 1.0f)
             .effect(new MobEffectInstance(MobEffects.SLOW_FALLING, 2500), 1.0f)
+            .effect(new MobEffectInstance(MobEffects.WATER_BREATHING, 2500), 1.0f)
             .build();
 }
