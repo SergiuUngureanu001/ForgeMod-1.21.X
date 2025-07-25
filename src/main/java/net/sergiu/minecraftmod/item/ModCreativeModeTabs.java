@@ -37,6 +37,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.ALEXANDRITE_CHESTPLATE.get());
                         output.accept(ModItems.ALEXANDRITE_LEGGINGS.get());
                         output.accept(ModItems.ALEXANDRITE_BOOTS.get());
+
+                        output.accept(ModItems.ALEXANDRITE_HORSE_ARMOT.get());
+                        output.accept(ModItems.KAUPEN_SMITHING_TEMPLATE.get());
                     })
                     .build());
 

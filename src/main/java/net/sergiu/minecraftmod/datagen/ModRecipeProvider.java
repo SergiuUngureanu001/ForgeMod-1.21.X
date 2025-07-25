@@ -1,5 +1,6 @@
 package net.sergiu.minecraftmod.datagen;
 
+import net.minecraft.resources.ResourceLocation;
 import net.sergiu.minecraftmod.TestMod;
 import net.sergiu.minecraftmod.block.ModBlocks;
 import net.sergiu.minecraftmod.item.ModItems;
@@ -73,6 +74,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(ModItems.ALEXANDRITE.get()), has(ModItems.ALEXANDRITE.get())).save(pRecipeOutput);
         trapdoorBuilder(ModBlocks.ALEXANDRITE_TRAPDOOR.get(), Ingredient.of(ModItems.ALEXANDRITE.get())).group("alexandrite")
                 .unlockedBy(getHasName(ModItems.ALEXANDRITE.get()), has(ModItems.ALEXANDRITE.get())).save(pRecipeOutput);
+
+        trimSmithing(pRecipeOutput, ModItems.KAUPEN_SMITHING_TEMPLATE.get(), ResourceLocation.fromNamespaceAndPath(TestMod.MOD_ID, "kaupen"));
 
     }
 

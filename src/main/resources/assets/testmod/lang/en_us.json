@@ -17,6 +17,8 @@
   "item.testmod.alexandrite_chestplate": "Alexandrite Chestplate",
   "item.testmod.alexandrite_leggings": "Alexandrite Leggings",
   "item.testmod.alexandrite_boots": "Alexandrite Boots",
+  "item.testmod.alexandrite_horse_armor": "Alexandrite Horse Armor",
+  "item.testmod.kaupen_armor_trim_smithing_template": "Kaupen Trim Template",
 
   "block.testmod.alexandrite_block": "Block Of Alexandrite",
   "block.testmod.raw_alexandrite_block": "Block Of Raw Alexandrite",
@@ -46,5 +48,8 @@
   "tooltip.testmod.goldifier.shift_down": "This item gives you just a bit from Zarathustra's powers",
   "tooltip.testmod.goldifier": "Press §eShift§r for more information",
   "tooltip.testmod.chisel": "Press §eShift§r for more information",
-  "tooltip.testmod.chisel.shift_down": "This item changes some blocks"
+  "tooltip.testmod.chisel.shift_down": "This item changes some blocks",
+
+  "trim_pattern.testmod.kaupen": "Kaupen Armor Trim",
+  "trim_material.testmod.alexandrite": "Alexandrite Material"
 }

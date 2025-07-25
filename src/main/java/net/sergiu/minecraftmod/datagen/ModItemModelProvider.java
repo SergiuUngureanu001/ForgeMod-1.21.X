@@ -68,6 +68,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         trimmedArmorItem(ModItems.ALEXANDRITE_LEGGINGS);
         trimmedArmorItem(ModItems.ALEXANDRITE_CHESTPLATE);
         trimmedArmorItem(ModItems.ALEXANDRITE_HELMET);
+
+        basicItem(ModItems.ALEXANDRITE_HORSE_ARMOT.get());
+        basicItem(ModItems.KAUPEN_SMITHING_TEMPLATE.get());
     }
 
     // Shoutout to El_Redstoniano for making this
