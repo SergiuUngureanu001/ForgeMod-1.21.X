@@ -10,6 +10,7 @@ import net.sergiu.minecraftmod.TestMod;
 import net.sergiu.minecraftmod.item.custom.ChiselItem;
 import net.sergiu.minecraftmod.item.custom.FuelItem;
 import net.sergiu.minecraftmod.item.custom.GoldifierItem;
+import net.sergiu.minecraftmod.item.custom.HammerItem;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -34,6 +35,8 @@ public class ModItems {
             .attributes(AxeItem.createAttributes(ModToolTiers.ALEXANDRITE, 6, -3.2f))));
     public static final RegistryObject<Item> ALEXANDRITE_HOE = ITEMS.register("alexandrite_hoe", () -> new HoeItem(ModToolTiers.ALEXANDRITE, new Item.Properties()
             .attributes(HoeItem.createAttributes(ModToolTiers.ALEXANDRITE, 0, -3.0f))));
+    public static final RegistryObject<Item> ALEXANDRITE_HAMMER = ITEMS.register("alexandrite_hammer", () -> new HammerItem(ModToolTiers.ALEXANDRITE, new Item.Properties()
+            .attributes(PickaxeItem.createAttributes(ModToolTiers.ALEXANDRITE, 7, -3.5f))));
 
 
     public static void register(IEventBus eventBus) {
