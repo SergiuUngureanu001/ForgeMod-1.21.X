@@ -1,6 +1,9 @@
 package net.sergiu.minecraftmod.block.custom;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -25,6 +28,8 @@ public class AlexandriteLampBlock extends Block {
             boolean currentState = pState.getValue(CLICKED);
             pLevel.setBlockAndUpdate(pPos, pState.setValue(CLICKED, !currentState));
         }
+
+        pLevel.playSound(null, pPos, SoundEvents.AMETHYST_BLOCK_HIT, SoundSource.BLOCKS, 1.0f, 1.0f);
 
         return InteractionResult.SUCCESS;
     }
