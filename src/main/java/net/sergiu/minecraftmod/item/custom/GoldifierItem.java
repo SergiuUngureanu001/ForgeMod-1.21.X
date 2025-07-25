@@ -25,6 +25,7 @@ public class GoldifierItem extends Item {
             Map.of(
                     Blocks.IRON_BLOCK, Blocks.GOLD_BLOCK,
                     Blocks.COAL_ORE, Blocks.GOLD_ORE,
+                    Blocks.COPPER_ORE, Blocks.GOLD_ORE,
                     Blocks.CACTUS, Blocks.GOLD_BLOCK
             );
 
