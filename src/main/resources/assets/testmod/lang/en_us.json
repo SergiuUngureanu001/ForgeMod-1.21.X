@@ -6,6 +6,11 @@
   "item.testmod.chisel":  "Chisel",
   "item.testmod.kohlrabi": "Kohlrabi",
   "item.testmod.aurora_ashes": "Aurora Ashes",
+  "item.testmod.alexandrite_sword": "Alexandrite Sword",
+  "item.testmod.alexandrite_pickaxe": "Alexandrite Pickaxe",
+  "item.testmod.alexandrite_axe": "Alexandrite Axe",
+  "item.testmod.alexandrite_shovel": "Alexandrite Shovel",
+  "item.testmod.alexandrite_hoe": "Alexandrite Hoe",
 
   "block.testmod.alexandrite_block": "Block Of Alexandrite",
   "block.testmod.raw_alexandrite_block": "Block Of Raw Alexandrite",
