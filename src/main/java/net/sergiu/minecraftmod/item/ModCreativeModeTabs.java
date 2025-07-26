@@ -32,6 +32,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.ALEXANDRITE_SHOVEL.get());
                         output.accept(ModItems.ALEXANDRITE_HOE.get());
                         output.accept(ModItems.ALEXANDRITE_HAMMER.get());
+                        output.accept(ModItems.KAUPEN_BOW.get());
 
                         output.accept(ModItems.ALEXANDRITE_HELMET.get());
                         output.accept(ModItems.ALEXANDRITE_CHESTPLATE.get());
@@ -41,7 +42,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.ALEXANDRITE_HORSE_ARMOT.get());
                         output.accept(ModItems.KAUPEN_SMITHING_TEMPLATE.get());
 
-                        output.accept(ModItems.KAUPEN_BOW.get());
+                        output.accept(ModItems.BAR_BRAWL_MUSIC_DISC.get());
+
                     })
                     .build());
 

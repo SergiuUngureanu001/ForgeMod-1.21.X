@@ -9,6 +9,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sergiu.minecraftmod.TestMod;
 import net.sergiu.minecraftmod.item.custom.*;
+import net.sergiu.minecraftmod.sound.ModSounds;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -56,6 +57,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> KAUPEN_BOW = ITEMS.register("kaupen_bow",
             () -> new BowItem(new Item.Properties().durability(500)));
+
+    public static final RegistryObject<Item> BAR_BRAWL_MUSIC_DISC = ITEMS.register("bar_brawl_music_disc",
+            () -> new Item(new Item.Properties().jukeboxPlayable(ModSounds.BAR_BRAWL_KEY).stacksTo(1)));
 
 
 
