@@ -23,6 +23,10 @@
   "item.testmod.bar_brawl_music_disc": "Bryan Tech - Bar Brawl",
   "item.testmod.bar_brawl_music_disc.desc": "Bryan Tech - Bar Brawl (CC0)",
 
+  "item.minecraft.potion.effect.slimey_potion": "Slimey Potion",
+  "item.minecraft.splash_potion.effect.slimey_potion": "Slimey Splash Potion",
+  "item.minecraft.lingering_potion.effect.slimey_potion": "Slimey Lingering Potion",
+
   "block.testmod.alexandrite_block": "Block Of Alexandrite",
   "block.testmod.raw_alexandrite_block": "Block Of Raw Alexandrite",
   "block.testmod.alexandrite_ore": "Block Of Alexandrite Ore",
