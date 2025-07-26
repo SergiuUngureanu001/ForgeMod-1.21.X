@@ -43,6 +43,8 @@
   "block.testmod.alexandrite_trapdoor": "Alexandrite Trapdoor",
   "block.testmod.alexandrite_lamp":  "Alexandrite Lamp",
 
+  "effect.testmod.slimey": "Slimey",
+
   "creativetab.testmod.alexandrite_items": "Alexandrite Items",
   "creativetab.testmod.alexandrite_bloks": "Alexandrite Blocks",
   "creativetab.testmod.zarathustra_items": "Zarathustra Items",

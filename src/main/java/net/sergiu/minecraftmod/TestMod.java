@@ -16,6 +16,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.sergiu.minecraftmod.block.ModBlocks;
 import net.sergiu.minecraftmod.component.ModDataComponentTypes;
+import net.sergiu.minecraftmod.effect.ModEffects;
 import net.sergiu.minecraftmod.item.ModCreativeModeTabs;
 import net.sergiu.minecraftmod.item.ModItems;
 import net.sergiu.minecraftmod.sound.ModSounds;
@@ -48,6 +49,7 @@ public class TestMod {
         ModBlocks.register(modEventBus);
         ModDataComponentTypes.register(modEventBus);
         ModSounds.register(modEventBus);
+        ModEffects.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
