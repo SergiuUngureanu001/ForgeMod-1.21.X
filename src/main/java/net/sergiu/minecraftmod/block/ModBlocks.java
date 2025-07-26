@@ -15,6 +15,7 @@ import net.sergiu.minecraftmod.TestMod;
 import net.sergiu.minecraftmod.block.custom.AlexandriteLampBlock;
 import net.sergiu.minecraftmod.block.custom.MagicBlock;
 import net.sergiu.minecraftmod.item.ModItems;
+import net.sergiu.minecraftmod.sound.ModSounds;
 
 import java.util.function.Supplier;
 
@@ -38,7 +39,7 @@ public class ModBlocks {
                     .strength(5f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
     public static final RegistryObject<Block> MAGIC_BLOCK = registerBlock("magic_block",
-            () -> new MagicBlock(BlockBehaviour.Properties.of().strength(2f).noLootTable()));
+            () -> new MagicBlock(BlockBehaviour.Properties.of().strength(2f).noLootTable().sound(ModSounds.MAGIC_BLOCK_SOUNDS)));
 
     ///  Non-Blocks Blocks
     public static final RegistryObject<StairBlock> ALEXANDRITE_STAIRS = registerBlock("alexandrite_stairs",

@@ -18,6 +18,7 @@ import net.sergiu.minecraftmod.block.ModBlocks;
 import net.sergiu.minecraftmod.component.ModDataComponentTypes;
 import net.sergiu.minecraftmod.item.ModCreativeModeTabs;
 import net.sergiu.minecraftmod.item.ModItems;
+import net.sergiu.minecraftmod.sound.ModSounds;
 import net.sergiu.minecraftmod.util.ModItemProperties;
 import org.slf4j.Logger;
 
@@ -46,6 +47,7 @@ public class TestMod {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModDataComponentTypes.register(modEventBus);
+        ModSounds.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
