@@ -1,6 +1,7 @@
 package net.sergiu.minecraftmod.datagen;
 
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Items;
 import net.sergiu.minecraftmod.TestMod;
 import net.sergiu.minecraftmod.block.ModBlocks;
 import net.sergiu.minecraftmod.item.ModItems;
@@ -44,6 +45,95 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("A A")
                 .define('A', ModItems.ALEXANDRITE.get())
                 .unlockedBy(getHasName(ModItems.ALEXANDRITE.get()),  has(ModItems.ALEXANDRITE.get())).save(pRecipeOutput);
+
+        /// ALEXANDRITE TOOLS
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.ALEXANDRITE_SWORD.get())
+                .pattern(" A ")
+                .pattern(" A ")
+                .pattern(" B ")
+                .define('A', ModItems.ALEXANDRITE.get())
+                .define('B', Items.STICK)
+                .unlockedBy(getHasName(ModItems.ALEXANDRITE.get()), has(ModItems.ALEXANDRITE.get())).save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.ALEXANDRITE_PICKAXE.get())
+                .pattern("AAA")
+                .pattern(" B ")
+                .pattern(" B ")
+                .define('A', ModItems.ALEXANDRITE.get())
+                .define('B', Items.STICK)
+                .unlockedBy(getHasName(ModItems.ALEXANDRITE.get()), has(ModItems.ALEXANDRITE.get())).save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.ALEXANDRITE_AXE.get())
+                .pattern("AA ")
+                .pattern("AB ")
+                .pattern(" B ")
+                .define('A', ModItems.ALEXANDRITE.get())
+                .define('B', Items.STICK)
+                .unlockedBy(getHasName(ModItems.ALEXANDRITE.get()), has(ModItems.ALEXANDRITE.get())).save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.ALEXANDRITE_SHOVEL.get())
+                .pattern(" A ")
+                .pattern(" B ")
+                .pattern(" B ")
+                .define('A', ModItems.ALEXANDRITE.get())
+                .define('B', Items.STICK)
+                .unlockedBy(getHasName(ModItems.ALEXANDRITE.get()), has(ModItems.ALEXANDRITE.get())).save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.ALEXANDRITE_HOE.get())
+                .pattern("AA ")
+                .pattern(" B ")
+                .pattern(" B ")
+                .define('A', ModItems.ALEXANDRITE.get())
+                .define('B', Items.STICK)
+                .unlockedBy(getHasName(ModItems.ALEXANDRITE.get()), has(ModItems.ALEXANDRITE.get())).save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.TOOLS, ModItems.ALEXANDRITE_HAMMER.get())
+                .pattern("AAA")
+                .pattern("AAA")
+                .pattern(" B ")
+                .define('A', ModItems.ALEXANDRITE.get())
+                .define('B', Items.STICK)
+                .unlockedBy(getHasName(ModItems.ALEXANDRITE.get()), has(ModItems.ALEXANDRITE.get())).save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.KAUPEN_BOW.get())
+                .pattern(" BC")
+                .pattern("BAC")
+                .pattern(" BC")
+                .define('A', ModItems.ALEXANDRITE.get())
+                .define('B', Items.STICK)
+                .define('C', Items.STRING)
+                .unlockedBy(getHasName(ModItems.ALEXANDRITE.get()), has(ModItems.ALEXANDRITE.get())).save(pRecipeOutput);
+
+        /// ALEXANDRITE ARMOR
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.ALEXANDRITE_HELMET.get())
+                .pattern("   ")
+                .pattern("AAA")
+                .pattern("A A")
+                .define('A', ModItems.ALEXANDRITE.get())
+                .unlockedBy(getHasName(ModItems.ALEXANDRITE.get()), has(ModItems.ALEXANDRITE.get())).save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.ALEXANDRITE_CHESTPLATE.get())
+                .pattern("A A")
+                .pattern("AAA")
+                .pattern("AAA")
+                .define('A', ModItems.ALEXANDRITE.get())
+                .unlockedBy(getHasName(ModItems.ALEXANDRITE.get()), has(ModItems.ALEXANDRITE.get())).save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.ALEXANDRITE_LEGGINGS.get())
+                .pattern("AAA")
+                .pattern("A A")
+                .pattern("A A")
+                .define('A', ModItems.ALEXANDRITE.get())
+                .unlockedBy(getHasName(ModItems.ALEXANDRITE.get()), has(ModItems.ALEXANDRITE.get())).save(pRecipeOutput);
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.ALEXANDRITE_BOOTS.get())
+                .pattern("   ")
+                .pattern("A A")
+                .pattern("A A")
+                .define('A', ModItems.ALEXANDRITE.get())
+                .unlockedBy(getHasName(ModItems.ALEXANDRITE.get()), has(ModItems.ALEXANDRITE.get())).save(pRecipeOutput);
+
+
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ALEXANDRITE.get(), 9)
                 .requires(ModBlocks.ALEXANDRITE_BLOCK.get())
