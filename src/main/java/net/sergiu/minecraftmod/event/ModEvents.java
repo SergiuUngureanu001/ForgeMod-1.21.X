@@ -10,6 +10,7 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.entity.animal.Sheep;
+import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -83,7 +84,34 @@ public class ModEvents {
 
                 player.sendSystemMessage(Component.literal("You've angered the gods!"));
             }
+        } else if (event.getEntity() instanceof Villager villager && event.getSource().getDirectEntity() instanceof Player player) {
+            if (!player.level().isClientSide()) {
+                player.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 200, 1));
+
+                var serverLevel = (net.minecraft.server.level.ServerLevel) player.level();
+
+                // Create Iron Golem with correct constructor
+                var golem = new net.minecraft.world.entity.animal.IronGolem(
+                        net.minecraft.world.entity.EntityType.IRON_GOLEM,
+                        serverLevel
+                );
+
+                // Position the golem near the player
+                golem.moveTo(player.getX() + 2, player.getY(), player.getZ() + 2);
+
+                // Make sure villagers don't attack it
+                golem.setPlayerCreated(true);
+
+                // Set player as the target
+                golem.setTarget(player);
+
+                // Add golem to the world
+                serverLevel.addFreshEntity(golem);
+
+                player.sendSystemMessage(Component.literal("You struck a villager. Justice is coming."));
+            }
         }
+
     }
 
     @SubscribeEvent
