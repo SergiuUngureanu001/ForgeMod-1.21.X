@@ -18,6 +18,7 @@ import net.sergiu.minecraftmod.block.ModBlocks;
 import net.sergiu.minecraftmod.component.ModDataComponentTypes;
 import net.sergiu.minecraftmod.item.ModCreativeModeTabs;
 import net.sergiu.minecraftmod.item.ModItems;
+import net.sergiu.minecraftmod.util.ModItemProperties;
 import org.slf4j.Logger;
 
 // Test
@@ -94,7 +95,7 @@ public class TestMod {
     {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            ModItemProperties.addCustomItemProperties();
         }
     }
 }

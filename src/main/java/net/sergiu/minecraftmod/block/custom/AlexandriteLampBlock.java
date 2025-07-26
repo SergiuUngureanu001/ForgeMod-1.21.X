@@ -29,7 +29,7 @@ public class AlexandriteLampBlock extends Block {
             pLevel.setBlockAndUpdate(pPos, pState.setValue(CLICKED, !currentState));
         }
 
-        pLevel.playSound(null, pPos, SoundEvents.AMETHYST_BLOCK_HIT, SoundSource.BLOCKS, 1.0f, 1.0f);
+        pLevel.playSound(null, pPos, SoundEvents.LIGHTNING_BOLT_THUNDER, SoundSource.BLOCKS, 1.0f, 1.0f);
 
         return InteractionResult.SUCCESS;
     }
