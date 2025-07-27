@@ -2,6 +2,7 @@ package net.sergiu.minecraftmod;
 
 import com.mojang.logging.LogUtils;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -63,7 +64,10 @@ public class TestMod {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-
+        event.enqueueWork(() -> {
+            ComposterBlock.COMPOSTABLES.put(ModItems.KOHLRABI.get(), 0.4f);
+            ComposterBlock.COMPOSTABLES.put(ModItems.KOHLRABI_SEEDS.get(), 0.15f);
+        });
     }
 
     // Add the example block item to the building blocks tab
@@ -84,9 +88,6 @@ public class TestMod {
             event.accept(ModBlocks.ALEXANDRITE_DEEPSLATE_ORE);
         }
 
-        if(event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
-            event.accept(ModItems.KOHLRABI);
-        }
 
 
     }

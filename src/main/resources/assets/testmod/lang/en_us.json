@@ -26,6 +26,7 @@
   "item.minecraft.potion.effect.slimey_potion": "Slimey Potion",
   "item.minecraft.splash_potion.effect.slimey_potion": "Slimey Splash Potion",
   "item.minecraft.lingering_potion.effect.slimey_potion": "Slimey Lingering Potion",
+  "item.testmod.kohlrabi_seeds": "Kohlrabi Seeds",
 
   "block.testmod.alexandrite_block": "Block Of Alexandrite",
   "block.testmod.raw_alexandrite_block": "Block Of Raw Alexandrite",
@@ -46,6 +47,7 @@
   "block.testmod.alexandrite_door": "Alexandrite Door",
   "block.testmod.alexandrite_trapdoor": "Alexandrite Trapdoor",
   "block.testmod.alexandrite_lamp":  "Alexandrite Lamp",
+  "block.testmod.kohlrabi_crop": "Kohlrabi Crop",
 
   "effect.testmod.slimey": "Slimey",
 
