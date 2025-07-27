@@ -33,6 +33,8 @@
   "block.testmod.raw_alexandrite_block": "Block Of Raw Alexandrite",
   "block.testmod.alexandrite_ore": "Block Of Alexandrite Ore",
   "block.testmod.alexandrite_deepslate_ore":  "Block Of Alexandrite Deepslate Ore",
+  "block.testmod.alexandrite_end_ore": "Alexandrite End Ore",
+  "block.testmod.alexandrite_nether_ore": "Alexandrite Nether Ore",
   "block.testmod.magic_block":  "Magic Block",
 
   "block.testmod.alexandrite_stairs": "Alexandrite Stairs",
