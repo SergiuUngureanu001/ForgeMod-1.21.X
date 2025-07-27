@@ -17,6 +17,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionBrewing;
 import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.event.brewing.BrewingRecipeRegisterEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.level.BlockEvent;
@@ -62,7 +63,7 @@ public class ModEvents {
 
     @SubscribeEvent
     public static void onLivingDamage(LivingDamageEvent event) {
-        final List<Item> HARM_ITEMS = List.of(Items.DIAMOND_SWORD,  Items.GOLDEN_SWORD, Items.IRON_SWORD);
+        final List<Item> HARM_ITEMS = List.of(Items.DIAMOND_SWORD,  Items.GOLDEN_SWORD, Items.IRON_SWORD, Items.WOODEN_SWORD, Items.STONE_SWORD);
         if(event.getEntity() instanceof Pig pig && event.getSource().getDirectEntity() instanceof Player player) {
             pig.addEffect(new MobEffectInstance(MobEffects.POISON, 600, 5));
             player.addEffect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 5));
@@ -70,19 +71,15 @@ public class ModEvents {
             player.level().playSound(null, player.getX(), player.getY(), player.getZ(), SoundEvents.ARMOR_EQUIP_GOLD, SoundSource.AMBIENT, 1.0f, 1.0f);
         } else if(event.getEntity() instanceof Animal animal && event.getSource().getDirectEntity() instanceof Player player) {
             if(HARM_ITEMS.contains(player.getMainHandItem().getItem())) {
-                // Strike lightning at the player's position
-                var serverLevel = (net.minecraft.server.level.ServerLevel) player.level();
-                var lightning = new net.minecraft.world.entity.LightningBolt(
-                        net.minecraft.world.entity.EntityType.LIGHTNING_BOLT,
-                        serverLevel
-                );
+                player.getMainHandItem().shrink(1);
+                player.addEffect(new MobEffectInstance(MobEffects.POISON, 200, 0));
 
-                animal.addEffect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 600, 5));
-                lightning.moveTo(player.getX(), player.getY(), player.getZ());
-                lightning.setVisualOnly(false);
-                serverLevel.addFreshEntity(lightning);
+                Level serverLevel = player.level();
 
-                player.sendSystemMessage(Component.literal("You've angered the gods!"));
+                serverLevel.playSound(null, player.getOnPos(), SoundEvents.ANVIL_DESTROY, SoundSource.AMBIENT, 1.0f, 1.0f);
+                player.sendSystemMessage(Component.literal(player.getName().getString() + " WAS TRYING TO KILL AN ANIMAL IN A WRONG WAY!"));
+
+
             }
         } else if (event.getEntity() instanceof Villager villager && event.getSource().getDirectEntity() instanceof Player player) {
             if (!player.level().isClientSide()) {
