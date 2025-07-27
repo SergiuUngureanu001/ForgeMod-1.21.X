@@ -6,6 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.SweetBerryBushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProviderType;
@@ -19,6 +20,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.sergiu.minecraftmod.TestMod;
 import net.sergiu.minecraftmod.block.ModBlocks;
 import net.sergiu.minecraftmod.block.custom.AlexandriteLampBlock;
+import net.sergiu.minecraftmod.block.custom.HoneyBerryBushBlock;
 import net.sergiu.minecraftmod.block.custom.KohlrabiCropBlock;
 
 import java.util.function.Function;
@@ -58,6 +60,21 @@ public class ModBlockStateProvider extends BlockStateProvider {
         customLamp();
 
         makeCrop(((CropBlock) ModBlocks.KOHLRABI_CROP.get()), "kohlrabi_crop_stage", "kohlrabi_crop_stage");
+        makeBush(((SweetBerryBushBlock) ModBlocks.HONEY_BERRY_BUSH.get()), "honey_berry_bush_stage", "honey_berry_bush_stage");
+    }
+
+    public void makeBush(SweetBerryBushBlock block, String modelName, String textureName) {
+        Function<BlockState, ConfiguredModel[]> function = state -> states(state, modelName, textureName);
+
+        getVariantBuilder(block).forAllStates(function);
+    }
+
+    private ConfiguredModel[] states(BlockState state, String modelName, String textureName) {
+        ConfiguredModel[] models = new ConfiguredModel[1];
+        models[0] = new ConfiguredModel(models().cross(modelName + state.getValue(HoneyBerryBushBlock.AGE),
+                ResourceLocation.fromNamespaceAndPath(TestMod.MOD_ID, "block/" + textureName + state.getValue(HoneyBerryBushBlock.AGE))).renderType("cutout"));
+
+        return models;
     }
 
     public void makeCrop(CropBlock block, String modelName, String textureName) {

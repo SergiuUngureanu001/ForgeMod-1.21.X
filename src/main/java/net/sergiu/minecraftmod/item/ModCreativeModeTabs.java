@@ -46,6 +46,7 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.KOHLRABI.get());
                         output.accept(ModItems.KOHLRABI_SEEDS.get());
+                        output.accept(ModItems.HONEY_BERRIES.get());
 
                     })
                     .build());

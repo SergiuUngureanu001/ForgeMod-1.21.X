@@ -25,4 +25,7 @@ public class ModFoodProperties {
             .effect(new MobEffectInstance(MobEffects.WATER_BREATHING, 2500), 1.0f)
             .effect(new MobEffectInstance(ModEffects.SLIMEY_EFFECT.getHolder().get(), 2500), 1.0f)
             .build();
+
+    public static final FoodProperties HONEY_BERRY = new FoodProperties.Builder().nutrition(3).saturationModifier(0.25f)
+            .saturationModifier(0.15f).fast().build();
 }

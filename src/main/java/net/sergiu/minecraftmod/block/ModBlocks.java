@@ -13,6 +13,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sergiu.minecraftmod.TestMod;
 import net.sergiu.minecraftmod.block.custom.AlexandriteLampBlock;
+import net.sergiu.minecraftmod.block.custom.HoneyBerryBushBlock;
 import net.sergiu.minecraftmod.block.custom.KohlrabiCropBlock;
 import net.sergiu.minecraftmod.block.custom.MagicBlock;
 import net.sergiu.minecraftmod.item.ModItems;
@@ -77,6 +78,9 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> KOHLRABI_CROP = BLOCKS.register("kohlrabi_crop",
             () -> new KohlrabiCropBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.WHEAT)));
+
+    public static final RegistryObject<Block> HONEY_BERRY_BUSH = BLOCKS.register("honey_berry_bush",
+            () -> new HoneyBerryBushBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.SWEET_BERRY_BUSH)));
 
 
 
