@@ -9,9 +9,7 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
-import net.minecraft.world.level.levelgen.placement.PlacementModifier;
+import net.minecraft.world.level.levelgen.placement.*;
 import net.sergiu.minecraftmod.TestMod;
 import net.sergiu.minecraftmod.block.ModBlocks;
 
@@ -24,6 +22,8 @@ public class ModPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> WALNUT_PLACED_KEY = registerKey("walnut_placed");
     public static final ResourceKey<PlacedFeature> PICKLE_PLACED_KEY = registerKey("pickle_placed");
+
+    public static final ResourceKey<PlacedFeature> HONEY_BERRY_BUSH_PLACED_KEY = registerKey("honey_berry_bush_placed");
 
 
     public static void bootstrap(BootstrapContext<PlacedFeature> context) {
@@ -46,6 +46,9 @@ public class ModPlacedFeatures {
         register(context, PICKLE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.PICKLE_KEY),
                 VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1f, 2),
                         ModBlocks.PICKLE_SAPLING.get()));
+
+        register(context, HONEY_BERRY_BUSH_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.HONEY_BERRY_BUSH_KEY),
+                List.of(RarityFilter.onAverageOnceEvery(32), InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
 
     }
 

@@ -21,6 +21,8 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_WALNUT_TREE =  registerKey("add_walnut_tree");
     public static final ResourceKey<BiomeModifier> ADD_PICKLE_TREE =  registerKey("add_pickle_tree");
 
+    public static final ResourceKey<BiomeModifier> ADD_HONEY_BERRY_BUSH =  registerKey("add_honey_berry_bush");
+
 
     public static void bootstrap(BootstrapContext<BiomeModifier> context) {
         var placedFeature = context.lookup(Registries.PLACED_FEATURE);
@@ -55,6 +57,11 @@ public class ModBiomeModifiers {
         context.register(ADD_PICKLE_TREE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
                 HolderSet.direct(biomes.getOrThrow(Biomes.MANGROVE_SWAMP), biomes.getOrThrow(Biomes.MUSHROOM_FIELDS)),
                 HolderSet.direct(placedFeature.getOrThrow(ModPlacedFeatures.PICKLE_PLACED_KEY)),
+                GenerationStep.Decoration.VEGETAL_DECORATION));
+
+        context.register(ADD_HONEY_BERRY_BUSH, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+                HolderSet.direct(biomes.getOrThrow(Biomes.FOREST), biomes.getOrThrow(Biomes.BIRCH_FOREST)),
+                HolderSet.direct(placedFeature.getOrThrow(ModPlacedFeatures.HONEY_BERRY_BUSH_PLACED_KEY)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
 
     }
