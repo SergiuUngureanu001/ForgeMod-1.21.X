@@ -100,6 +100,9 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
 
         this.add(ModBlocks.WALNUT_LEAVES.get(), block ->
                 createLeavesDrops(block, ModBlocks.WALNUT_SAPLING.get(), NORMAL_LEAVES_SAPLING_CHANCES));
+
+        /// PICKLE TREE
+        this.dropSelf(ModBlocks.PICKLE_SAPLING.get());
     }
 
     protected LootTable.Builder createMultipleOreDrops(Block pBlock, Item item, float minDrops, float maxDrops) {

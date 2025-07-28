@@ -81,6 +81,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         leavesBlock(ModBlocks.WALNUT_LEAVES);
         saplingBlock(ModBlocks.WALNUT_SAPLING);
+
+        ///  PICKLE TREE
+        saplingBlock(ModBlocks.PICKLE_SAPLING);
     }
 
     private void saplingBlock(RegistryObject<Block> blockRegistryObject) {

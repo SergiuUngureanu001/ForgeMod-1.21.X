@@ -30,6 +30,7 @@ public class ModConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> END_ALEXANDRITE_ORE_KEY = registerKey("end_alexandrite_ore");
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WALNUT_KEY = registerKey("walnut");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> PICKLE_KEY = registerKey("pickle");
 
 
     public static void bootstrap(BootstrapContext<ConfiguredFeature<?, ?>> context) {
@@ -53,6 +54,15 @@ public class ModConfiguredFeatures {
                 new ForkingTrunkPlacer(4, 4, 3),
 
                 BlockStateProvider.simple(ModBlocks.WALNUT_LEAVES.get()),
+                new BlobFoliagePlacer(ConstantInt.of(3), ConstantInt.of(3), 3),
+
+                new TwoLayersFeatureSize(1, 0, 2)).build());
+
+        register(context, PICKLE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
+                BlockStateProvider.simple(Blocks.WARPED_STEM),
+                new ForkingTrunkPlacer(4, 4, 3),
+
+                BlockStateProvider.simple(Blocks.GLOW_LICHEN),
                 new BlobFoliagePlacer(ConstantInt.of(3), ConstantInt.of(3), 3),
 
                 new TwoLayersFeatureSize(1, 0, 2)).build());
