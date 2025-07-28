@@ -6,6 +6,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.LightBlock;
 import net.minecraft.world.level.block.SweetBerryBushBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -22,6 +23,7 @@ import net.sergiu.minecraftmod.block.ModBlocks;
 import net.sergiu.minecraftmod.block.custom.AlexandriteLampBlock;
 import net.sergiu.minecraftmod.block.custom.HoneyBerryBushBlock;
 import net.sergiu.minecraftmod.block.custom.KohlrabiCropBlock;
+import org.apache.logging.log4j.LogBuilder;
 
 import java.util.function.Function;
 
@@ -64,6 +66,32 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         makeCrop(((CropBlock) ModBlocks.KOHLRABI_CROP.get()), "kohlrabi_crop_stage", "kohlrabi_crop_stage");
         makeBush(((SweetBerryBushBlock) ModBlocks.HONEY_BERRY_BUSH.get()), "honey_berry_bush_stage", "honey_berry_bush_stage");
+
+        logBlock(ModBlocks.WALNUT_LOG.get());
+        axisBlock(ModBlocks.WALNUT_WOOD.get(), blockTexture(ModBlocks.WALNUT_LOG.get()), blockTexture(ModBlocks.WALNUT_LOG.get()));
+        logBlock(ModBlocks.STRIPPED_WALNUT_LOG.get());
+        axisBlock(ModBlocks.STRIPPED_WALNUT_WOOD.get(), blockTexture(ModBlocks.STRIPPED_WALNUT_LOG.get()), blockTexture(ModBlocks.STRIPPED_WALNUT_LOG.get()));
+
+        blockItem(ModBlocks.WALNUT_LOG);
+        blockItem(ModBlocks.WALNUT_WOOD);
+        blockItem(ModBlocks.STRIPPED_WALNUT_LOG);
+        blockItem(ModBlocks.STRIPPED_WALNUT_WOOD);
+
+        blockWithItem(ModBlocks.WALNUT_PLANKS);
+
+        leavesBlock(ModBlocks.WALNUT_LEAVES);
+        saplingBlock(ModBlocks.WALNUT_SAPLING);
+    }
+
+    private void saplingBlock(RegistryObject<Block> blockRegistryObject) {
+        simpleBlock(blockRegistryObject.get(),
+                models().cross(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(), blockTexture(blockRegistryObject.get())).renderType("cutout"));
+    }
+
+    private void leavesBlock(RegistryObject<Block> blockRegistryObject) {
+        simpleBlockWithItem(blockRegistryObject.get(),
+                models().singleTexture(ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath(), ResourceLocation.parse("minecraft:block/leaves"),
+                        "all", blockTexture(blockRegistryObject.get())).renderType("cutout"));
     }
 
     public void makeBush(SweetBerryBushBlock block, String modelName, String textureName) {

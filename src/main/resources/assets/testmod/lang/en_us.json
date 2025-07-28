@@ -53,6 +53,15 @@
   "block.testmod.kohlrabi_crop": "Kohlrabi Crop",
   "block.testmod.honey_berry_bush": "Honey Berry Bush",
 
+  "block.testmod.walnut_log": "Walnut Log",
+  "block.testmod.walnut_planks": "Walnut Planks",
+  "block.testmod.walnut_wood": "Walnut Wood",
+  "block.testmod.stripped_walnut_log": "Stripped Walnut Log",
+  "block.testmod.stripped_walnut_wood": "Stripped Walnut Wood",
+  "block.testmod.walnut_leaves": "Walnut Leaves",
+
+  "block.testmod.walnut_sapling": "Walnut Sapling",
+
   "effect.testmod.slimey": "Slimey",
 
   "enchantment.testmod.lightning_striker": "Lightning Striker",
