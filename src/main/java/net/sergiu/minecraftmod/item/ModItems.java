@@ -3,12 +3,14 @@ package net.sergiu.minecraftmod.item;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sergiu.minecraftmod.TestMod;
 import net.sergiu.minecraftmod.block.ModBlocks;
+import net.sergiu.minecraftmod.entity.ModEntities;
 import net.sergiu.minecraftmod.item.custom.*;
 import net.sergiu.minecraftmod.sound.ModSounds;
 
@@ -67,6 +69,12 @@ public class ModItems {
 
     public static final RegistryObject<Item> HONEY_BERRIES = ITEMS.register("honey_berries",
             () -> new ItemNameBlockItem(ModBlocks.HONEY_BERRY_BUSH.get(), new Item.Properties().food(ModFoodProperties.HONEY_BERRY)));
+
+    public static final RegistryObject<Item> TRICERATOPS_SPAWN_EGG = ITEMS.register("triceratops_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.TRICERATOPS, 0x53524b, 0xdac741, new Item.Properties()));
+
+    public static final RegistryObject<Item> ZARATHUSTRA_SPAWN_EGG = ITEMS.register("zarathustra_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.ZARATHUSTRA, 0x53524b, 0xdac741, new Item.Properties()));
 
 
 

@@ -1,6 +1,8 @@
 package net.sergiu.minecraftmod;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.api.distmarker.Dist;
@@ -19,6 +21,9 @@ import net.sergiu.minecraftmod.block.ModBlocks;
 import net.sergiu.minecraftmod.component.ModDataComponentTypes;
 import net.sergiu.minecraftmod.effect.ModEffects;
 import net.sergiu.minecraftmod.enchantment.ModEnchantmentEffects;
+import net.sergiu.minecraftmod.entity.ModEntities;
+import net.sergiu.minecraftmod.entity.client.TriceratopsRenderer;
+import net.sergiu.minecraftmod.entity.client.ZarathustraRenderer;
 import net.sergiu.minecraftmod.item.ModCreativeModeTabs;
 import net.sergiu.minecraftmod.item.ModItems;
 import net.sergiu.minecraftmod.potion.ModPotions;
@@ -55,6 +60,7 @@ public class TestMod {
         ModEffects.register(modEventBus);
         ModPotions.register(modEventBus);
         ModEnchantmentEffects.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -105,6 +111,11 @@ public class TestMod {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             ModItemProperties.addCustomItemProperties();
+
+            EntityRenderers.register(ModEntities.TRICERATOPS.get(), TriceratopsRenderer::new);
+            EntityRenderers.register(ModEntities.ZARATHUSTRA.get(), ZarathustraRenderer::new);
         }
+
+
     }
 }
