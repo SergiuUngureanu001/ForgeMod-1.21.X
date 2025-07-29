@@ -1,5 +1,9 @@
 package net.sergiu.minecraftmod.entity.custom;
 
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerBossEvent;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.BossEvent;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -14,6 +18,9 @@ import net.minecraft.world.level.Level;
 public class ZarathustraEntity extends Zombie {
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
+
+    private final ServerBossEvent bossEvent = new ServerBossEvent(Component.literal("Zarathustra Final Boss"),
+            BossEvent.BossBarColor.RED, BossEvent.BossBarOverlay.NOTCHED_12);
 
     public ZarathustraEntity(EntityType<? extends Zombie> type, Level level) {
         super(type, level);
@@ -51,5 +58,25 @@ public class ZarathustraEntity extends Zombie {
             idleAnimationState.start(this.tickCount);
             idleAnimationTimeout = this.random.nextInt(100) + 40;
         }
+    }
+
+    /* BOSS BAR */
+
+    @Override
+    public void startSeenByPlayer(ServerPlayer pServerPlayer) {
+        super.startSeenByPlayer(pServerPlayer);
+        this.bossEvent.addPlayer(pServerPlayer);
+    }
+
+    @Override
+    public void stopSeenByPlayer(ServerPlayer pServerPlayer) {
+        super.stopSeenByPlayer(pServerPlayer);
+        this.bossEvent.removePlayer(pServerPlayer);
+    }
+
+    @Override
+    public void aiStep() {
+        super.aiStep();
+        this.bossEvent.setProgress(this.getHealth() / this.getMaxHealth());
     }
 }

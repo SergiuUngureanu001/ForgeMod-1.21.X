@@ -20,7 +20,7 @@ public class ModEntities {
 
     public static final RegistryObject<EntityType<ZarathustraEntity>> ZARATHUSTRA =
             ENTITY_TYPES.register("zarathustra", () -> EntityType.Builder.of(ZarathustraEntity::new, MobCategory.CREATURE)
-                    .sized(1.0f, 1.5f).build("zarathustra"));
+                    .sized(1.0f, 2.0f).build("zarathustra"));
 
     public static void register(IEventBus bus) {
         ENTITY_TYPES.register(bus);

@@ -7,11 +7,15 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.level.biome.Biomes;
+import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraftforge.common.world.BiomeModifier;
 import net.minecraftforge.common.world.ForgeBiomeModifiers;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.sergiu.minecraftmod.TestMod;
+import net.sergiu.minecraftmod.entity.ModEntities;
+
+import java.util.List;
 
 public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_ALEXANDRITE_ORE = registerKey("add_alexandrite_ore");
@@ -22,6 +26,10 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_PICKLE_TREE =  registerKey("add_pickle_tree");
 
     public static final ResourceKey<BiomeModifier> ADD_HONEY_BERRY_BUSH =  registerKey("add_honey_berry_bush");
+
+    public static final ResourceKey<BiomeModifier> SPAWN_TRICERATOPS = registerKey("spawn_triceratops");
+
+    public static final ResourceKey<BiomeModifier> SPAWN_ZARATHUSTRA = registerKey("spawn_zarathustra");
 
 
     public static void bootstrap(BootstrapContext<BiomeModifier> context) {
@@ -63,6 +71,14 @@ public class ModBiomeModifiers {
                 HolderSet.direct(biomes.getOrThrow(Biomes.FOREST), biomes.getOrThrow(Biomes.BIRCH_FOREST)),
                 HolderSet.direct(placedFeature.getOrThrow(ModPlacedFeatures.HONEY_BERRY_BUSH_PLACED_KEY)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
+
+        context.register(SPAWN_TRICERATOPS, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                HolderSet.direct(biomes.getOrThrow(Biomes.BAMBOO_JUNGLE), biomes.getOrThrow(Biomes.PLAINS)),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.TRICERATOPS.get(), 25, 3, 5))));
+
+        context.register(SPAWN_ZARATHUSTRA, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                HolderSet.direct(biomes.getOrThrow(Biomes.DRIPSTONE_CAVES), biomes.getOrThrow(Biomes.LUSH_CAVES)),
+                List.of(new MobSpawnSettings.SpawnerData(ModEntities.ZARATHUSTRA.get(), 40, 3, 5))));
 
     }
 
