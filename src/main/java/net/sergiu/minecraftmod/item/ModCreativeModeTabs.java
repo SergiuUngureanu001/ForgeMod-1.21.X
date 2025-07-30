@@ -88,6 +88,7 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModBlocks.WALNUT_LEAVES.get());
                         output.accept(ModBlocks.PICKLE_SAPLING.get());
+                        output.accept(ModBlocks.CHAIR.get());
                     })
                     .build());
 

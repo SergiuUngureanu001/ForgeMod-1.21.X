@@ -145,6 +145,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> PICKLE_SAPLING = registerBlock("pickle_sapling",
             () -> new SaplingBlock(ModTreeGrowers.PICKLE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
 
+    public static final RegistryObject<Block> CHAIR = registerBlock("chair",
+            () -> new ChairBlock(BlockBehaviour.Properties.of().noOcclusion()));
+
 
 
 
