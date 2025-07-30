@@ -7,6 +7,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sergiu.minecraftmod.TestMod;
+import net.sergiu.minecraftmod.entity.custom.ChairEntity;
 import net.sergiu.minecraftmod.entity.custom.TomahawkProjectileEntity;
 import net.sergiu.minecraftmod.entity.custom.TriceratopsEntity;
 import net.sergiu.minecraftmod.entity.custom.ZarathustraEntity;
@@ -26,6 +27,10 @@ public class ModEntities {
     public static final RegistryObject<EntityType<TomahawkProjectileEntity>> TOMAHAWK =
             ENTITY_TYPES.register("tomahawk", () -> EntityType.Builder.<TomahawkProjectileEntity>of(TomahawkProjectileEntity::new, MobCategory.MISC)
                     .sized(0.5f, 1.15f).build("tomahawk"));
+
+    public static final RegistryObject<EntityType<ChairEntity>> CHAIR =
+            ENTITY_TYPES.register("chair_entity", () -> EntityType.Builder.of(ChairEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f).build("chair_entity"));
 
     public static void register(IEventBus bus) {
         ENTITY_TYPES.register(bus);
