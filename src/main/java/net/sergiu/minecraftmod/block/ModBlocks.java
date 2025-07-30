@@ -146,7 +146,7 @@ public class ModBlocks {
             () -> new SaplingBlock(ModTreeGrowers.PICKLE, BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SAPLING)));
 
     public static final RegistryObject<Block> CHAIR = registerBlock("chair",
-            () -> new ChairBlock(BlockBehaviour.Properties.of().noOcclusion()));
+            () -> new ChairBlock(BlockBehaviour.Properties.of().noOcclusion().noLootTable()));
 
 
 

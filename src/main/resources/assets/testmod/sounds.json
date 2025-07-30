@@ -42,5 +42,32 @@
         "stream": true
       }
     ]
+  },
+  "zarathustra_ambient": {
+    "subtitle": "sounds.testmod.zarathustra_ambient",
+    "sounds": [
+      "testmod:zarathustra_ambient",
+      "testmod:zarathustra_happy"
+    ]
+  },
+  "zarathustra_angry": {
+    "subtitle": "sounds.testmod.zarathustra_angry",
+    "sounds": [
+      "testmod:zarathustra_angry"
+    ]
+  },
+  "zarathustra_hurt": {
+    "subtitle": "sounds.testmod.zarathustra_hurt",
+    "sounds": [
+      "testmod:zarathustra_hurt",
+      "testmod:zarathustra_question"
+    ]
+  },
+  "zarathustra_death": {
+    "subtitle": "sounds.testmod.zarathustra_death",
+    "sounds": [
+      "testmod:zarathustra_death"
+    ]
   }
+
 }

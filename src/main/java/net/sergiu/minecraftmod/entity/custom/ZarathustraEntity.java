@@ -6,14 +6,12 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.BossEvent;
 import net.minecraft.world.DifficultyInstance;
-import net.minecraft.world.entity.AnimationState;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.SpawnGroupData;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -29,6 +27,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.damagesource.DamageSource;
 
 import net.sergiu.minecraftmod.entity.ModEntities;
+import net.sergiu.minecraftmod.sound.ModSounds;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -36,6 +35,7 @@ import java.util.List;
 public class ZarathustraEntity extends Zombie {
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimationTimeout = 0;
+    private boolean halfHealthSoundPlayed;
 
     private final ServerBossEvent bossEvent = new ServerBossEvent(Component.literal("Zarathustra Final Boss"),
             BossEvent.BossBarColor.RED, BossEvent.BossBarOverlay.NOTCHED_12);
@@ -44,6 +44,7 @@ public class ZarathustraEntity extends Zombie {
     public ZarathustraEntity(EntityType<? extends Zombie> type, Level level) {
         super(type, level);
         this.level = level;
+        this.halfHealthSoundPlayed = false;
     }
 
     @Override
@@ -86,6 +87,10 @@ public class ZarathustraEntity extends Zombie {
             this.getAttribute(Attributes.MAX_HEALTH).setBaseValue(this.getAttribute(Attributes.MAX_HEALTH).getBaseValue() * 0.1);
 
             this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(this.getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue() * 1.2);
+
+            this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(this.getAttribute(Attributes.ATTACK_DAMAGE).getBaseValue() * 0.25);
+
+            this.getAttribute(Attributes.ATTACK_SPEED).setBaseValue(this.getAttribute(Attributes.ATTACK_SPEED).getBaseValue() * 1.2);
 
             this.setHealth(this.getMaxHealth());
         }
@@ -167,6 +172,42 @@ public class ZarathustraEntity extends Zombie {
         this.bossEvent.setProgress(this.getHealth() / this.getMaxHealth());
     }
 
+    @Override
+    public boolean hurt(DamageSource source, float amount) {
+        // 1. Remember the health before taking damage
+        float prevHealth = this.getHealth();
+        // 2. Actually apply the damage
+        boolean damaged = super.hurt(source, amount);
+        // 3. On server side, check if we just crossed below 50%
+        if (!this.level.isClientSide
+                && !halfHealthSoundPlayed
+                && prevHealth > this.getMaxHealth() * 0.5F
+                && this.getHealth() <= this.getMaxHealth() * 0.5F) {
+            // 4. Play your chosen sound exactly once
+            this.level.playSound(
+                    null,
+                    this.blockPosition(),
+                    ModSounds.ZARATHUSTRA_ANGRY.get(), // or SoundEvents.YOUR_CHOICE
+                    SoundSource.HOSTILE,
+                    2.0F,
+                    0.8F
+            );
+            // 5. Flip the flag so it never fires again
+            halfHealthSoundPlayed = true;
+        } else if ((!this.level.isClientSide
+                && halfHealthSoundPlayed
+                && this.getHealth() <= this.getMaxHealth() * 0.5F)) {
+            this.level.playSound(
+                    null,
+                    this.blockPosition(),
+                    ModSounds.ZARATHUSTRA_ANGRY.get(), // or SoundEvents.YOUR_CHOICE
+                    SoundSource.HOSTILE,
+                    2.0F,
+                    0.8F);
+        }
+        return damaged;
+    }
+
 
     @Override
     public void die(DamageSource cause) {
@@ -174,7 +215,6 @@ public class ZarathustraEntity extends Zombie {
 
         // Only run on the server side
         if (!this.level.isClientSide) {
-            // Find all baby Zarathustra within, say, 32 blocks
             List<ZarathustraEntity> babies = this.level.getEntitiesOfClass(
                     ZarathustraEntity.class,
                     this.getBoundingBox().inflate(64.0),
@@ -186,6 +226,38 @@ public class ZarathustraEntity extends Zombie {
                 baby.remove(RemovalReason.KILLED);
             }
         }
+        Entity direct = cause.getDirectEntity();
+        if(!(direct instanceof ServerPlayer player)) return;
+
+        player.sendSystemMessage(
+                Component.literal("§6You just killed Zarathustra! §rMaybe he will come back...")
+        );
+
+    }
+    /* SOUNDS */
+
+    @Override
+    protected @Nullable SoundEvent getAmbientSound() {
+        if(!this.isBaby()) {
+            return ModSounds.ZARATHUSTRA_AMBIENT.get();
+        }
+        return null;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getHurtSound(DamageSource pDamageSource) {
+        if(!this.isBaby() && !halfHealthSoundPlayed) {
+            return ModSounds.ZARATHUSTRA_HURT.get();
+        }
+        return null;
+    }
+
+    @Override
+    protected @Nullable SoundEvent getDeathSound() {
+        if(!this.isBaby()) {
+            return ModSounds.ZARATHUSTRA_DEATH.get();
+        }
+        return null;
     }
 
 }

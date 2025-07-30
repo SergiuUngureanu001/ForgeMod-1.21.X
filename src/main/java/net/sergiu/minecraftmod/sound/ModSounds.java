@@ -24,9 +24,17 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> MAGIC_BLOCK_HIT = registerSoundEvent("magic_block_hit");
     public static final RegistryObject<SoundEvent> MAGIC_BLOCK_FALL = registerSoundEvent("magic_block_fall");
 
+    public static final RegistryObject<SoundEvent> ZARATHUSTRA_AMBIENT = registerSoundEvent("zarathustra_ambient");
+    public static final RegistryObject<SoundEvent> ZARATHUSTRA_HAPPY = registerSoundEvent("zarathustra_happy");
+    public static final RegistryObject<SoundEvent> ZARATHUSTRA_ANGRY = registerSoundEvent("zarathustra_angry");
+    public static final RegistryObject<SoundEvent> ZARATHUSTRA_HURT = registerSoundEvent("zarathustra_hurt");
+    public static final RegistryObject<SoundEvent> ZARATHUSTRA_QUESTION = registerSoundEvent("zarathustra_question");
+    public static final RegistryObject<SoundEvent> ZARATHUSTRA_DEATH = registerSoundEvent("zarathustra_death");
+
     public static final ForgeSoundType MAGIC_BLOCK_SOUNDS = new ForgeSoundType(1f, 1f,
             ModSounds.MAGIC_BLOCK_BREAK, ModSounds.MAGIC_BLOCK_STEP, ModSounds.MAGIC_BLOCK_PLACE,
             ModSounds.MAGIC_BLOCK_HIT, ModSounds.MAGIC_BLOCK_FALL);
+
 
     public static final RegistryObject<SoundEvent> BAR_BRAWL = registerSoundEvent("bar_brawl");
     public static final ResourceKey<JukeboxSong> BAR_BRAWL_KEY = ResourceKey.create(Registries.JUKEBOX_SONG,
