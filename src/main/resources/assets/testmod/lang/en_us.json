@@ -30,6 +30,7 @@
   "item.testmod.honey_berries": "Honey Berries",
   "item.testmod.triceratops_spawn_egg": "Triceratops Spawn Egg",
   "item.testmod.zarathustra_spawn_egg": "Zarathustra Spawn Egg",
+  "item.testmod.tomahawk": "Tomahawk",
 
   "block.testmod.alexandrite_block": "Block Of Alexandrite",
   "block.testmod.raw_alexandrite_block": "Block Of Raw Alexandrite",
@@ -91,5 +92,6 @@
   "trim_material.testmod.alexandrite": "Alexandrite Material",
 
   "entity.testmod.triceratops": "Triceratops",
-  "entity.testmod.zarathustra": "Zarathustra"
+  "entity.testmod.zarathustra": "Zarathustra",
+  "entity.testmod.tomahawk": "Tomahawk"
 }

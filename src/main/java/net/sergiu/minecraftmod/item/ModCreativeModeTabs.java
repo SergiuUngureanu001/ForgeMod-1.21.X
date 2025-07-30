@@ -49,7 +49,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.HONEY_BERRIES.get());
 
                         output.accept(ModItems.TRICERATOPS_SPAWN_EGG.get());
-                        output.accept(ModItems.ZARATHUSTRA_SPAWN_EGG.get());
+                        output.accept(ModItems.TOMAHAWK.get());
 
                     })
                     .build());
@@ -98,6 +98,7 @@ public class ModCreativeModeTabs {
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.ZARATHUSTRA.get());
                         output.accept(ModItems.GAUNUS.get());
+                        output.accept(ModItems.ZARATHUSTRA_SPAWN_EGG.get());
                     })
                     .build());
 

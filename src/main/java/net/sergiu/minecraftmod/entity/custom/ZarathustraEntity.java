@@ -177,7 +177,7 @@ public class ZarathustraEntity extends Zombie {
             // Find all baby Zarathustra within, say, 32 blocks
             List<ZarathustraEntity> babies = this.level.getEntitiesOfClass(
                     ZarathustraEntity.class,
-                    this.getBoundingBox().inflate(32.0),
+                    this.getBoundingBox().inflate(64.0),
                     baby -> baby.isBaby()
             );
 

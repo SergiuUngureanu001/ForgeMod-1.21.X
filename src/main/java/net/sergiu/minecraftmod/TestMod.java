@@ -22,6 +22,7 @@ import net.sergiu.minecraftmod.component.ModDataComponentTypes;
 import net.sergiu.minecraftmod.effect.ModEffects;
 import net.sergiu.minecraftmod.enchantment.ModEnchantmentEffects;
 import net.sergiu.minecraftmod.entity.ModEntities;
+import net.sergiu.minecraftmod.entity.client.TomahawkProjectileRenderer;
 import net.sergiu.minecraftmod.entity.client.TriceratopsRenderer;
 import net.sergiu.minecraftmod.entity.client.ZarathustraRenderer;
 import net.sergiu.minecraftmod.item.ModCreativeModeTabs;
@@ -114,6 +115,7 @@ public class TestMod {
 
             EntityRenderers.register(ModEntities.TRICERATOPS.get(), TriceratopsRenderer::new);
             EntityRenderers.register(ModEntities.ZARATHUSTRA.get(), ZarathustraRenderer::new);
+            EntityRenderers.register(ModEntities.TOMAHAWK.get(), TomahawkProjectileRenderer::new);
         }
 
 

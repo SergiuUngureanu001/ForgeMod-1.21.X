@@ -12,6 +12,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.sergiu.minecraftmod.TestMod;
 import net.sergiu.minecraftmod.entity.ModEntities;
+import net.sergiu.minecraftmod.entity.client.TomahawkProjectileModel;
 import net.sergiu.minecraftmod.entity.client.TriceratopsModel;
 import net.sergiu.minecraftmod.entity.client.ZarathustraModel;
 import net.sergiu.minecraftmod.entity.custom.TriceratopsEntity;
@@ -23,6 +24,7 @@ public class ModEventBusEvents {
     public static void registerLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(TriceratopsModel.LAYER_LOCATION, TriceratopsModel::createBodyLayer);
         event.registerLayerDefinition(ZarathustraModel.LAYER_LOCATION, ZarathustraModel::createBodyLayer);
+        event.registerLayerDefinition(TomahawkProjectileModel.LAYER_LOCATION, TomahawkProjectileModel::createBodyLayer);
     }
 
     @SubscribeEvent
