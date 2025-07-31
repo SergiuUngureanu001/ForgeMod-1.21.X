@@ -227,7 +227,7 @@ public class ZarathustraEntity extends Zombie {
             }
         }
         Entity direct = cause.getDirectEntity();
-        if(!(direct instanceof ServerPlayer player)) return;
+        if(!(direct instanceof ServerPlayer player) || this.isBaby()) return;
 
         player.sendSystemMessage(
                 Component.literal("§6You just killed Zarathustra! §rMaybe he will come back...")
