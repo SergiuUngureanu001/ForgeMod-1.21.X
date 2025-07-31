@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -28,6 +29,8 @@ import net.sergiu.minecraftmod.entity.client.TriceratopsRenderer;
 import net.sergiu.minecraftmod.entity.client.ZarathustraRenderer;
 import net.sergiu.minecraftmod.item.ModCreativeModeTabs;
 import net.sergiu.minecraftmod.item.ModItems;
+import net.sergiu.minecraftmod.particle.AlexandriteParticles;
+import net.sergiu.minecraftmod.particle.ModParticles;
 import net.sergiu.minecraftmod.potion.ModPotions;
 import net.sergiu.minecraftmod.sound.ModSounds;
 import net.sergiu.minecraftmod.util.ModItemProperties;
@@ -65,6 +68,7 @@ public class TestMod {
         ModEnchantmentEffects.register(modEventBus);
         ModEntities.register(modEventBus);
         ModVillagers.register(modEventBus);
+        ModParticles.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
@@ -122,6 +126,9 @@ public class TestMod {
             EntityRenderers.register(ModEntities.CHAIR.get(), ChairRenderer::new);
         }
 
-
+        @SubscribeEvent
+        public static void registerParticleProvider(RegisterParticleProvidersEvent event) {
+            event.registerSpriteSet(ModParticles.ALEXANDRITE_PARTICLES.get(), AlexandriteParticles.Provider::new);
+        }
     }
 }

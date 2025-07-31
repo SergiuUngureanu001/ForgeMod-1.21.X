@@ -1,6 +1,9 @@
 package net.sergiu.minecraftmod.item.custom;
 
 import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.core.particles.BlockParticleOption;
+import net.minecraft.core.particles.ParticleType;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
@@ -18,6 +21,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.sergiu.minecraftmod.block.ModBlocks;
 import net.sergiu.minecraftmod.component.ModDataComponentTypes;
+import net.sergiu.minecraftmod.particle.ModParticles;
 import net.sergiu.minecraftmod.sound.ModSounds;
 
 import java.util.List;
@@ -50,6 +54,16 @@ public class ChiselItem extends Item {
                         item -> pContext.getPlayer().onEquippedItemBroken(item, EquipmentSlot.MAINHAND));
 
                 level.playSound(null, pContext.getClickedPos(), ModSounds.CHISEL_USE.get(), SoundSource.BLOCKS);
+
+                ((ServerLevel) level).sendParticles(ParticleTypes.EXPLOSION,
+                        pContext.getClickedPos().getX() + 0.5, pContext.getClickedPos().getY() + 1.0,
+                        pContext.getClickedPos().getZ() + 0.5, 10, 0, 0, 0, 1);
+
+                pContext.getItemInHand().set(ModDataComponentTypes.COORDINATES.get(), pContext.getClickedPos());
+
+                ((ServerLevel) level).sendParticles(ModParticles.ALEXANDRITE_PARTICLES.get(),
+                        pContext.getClickedPos().getX() + 0.5, pContext.getClickedPos().getY() + 1.0,
+                        pContext.getClickedPos().getZ() + 0.5, 8, 0, 0, 0, 2);
 
                 pContext.getItemInHand().set(ModDataComponentTypes.COORDINATES.get(), pContext.getClickedPos());
             }

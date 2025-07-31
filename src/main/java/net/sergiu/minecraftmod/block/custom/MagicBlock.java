@@ -18,6 +18,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.sergiu.minecraftmod.item.ModItems;
+import net.sergiu.minecraftmod.particle.ModParticles;
 import net.sergiu.minecraftmod.sound.ModSounds;
 import net.sergiu.minecraftmod.util.ModTags;
 
@@ -30,6 +31,8 @@ public class MagicBlock extends Block {
 
     @Override
     protected InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHitResult) {
+
+        pLevel.addParticle(ModParticles.ALEXANDRITE_PARTICLES.get(), pPlayer.getX() + 0.5, pPlayer.getY() + 1, pPlayer.getZ() + 0.5, 0.0D, 1.0D, 0.0D);
 
         pLevel.playSound(pPlayer, pPos, ModSounds.MAGIC_BLOCK_HIT.get(),  SoundSource.BLOCKS, 1f, 1f);
         return InteractionResult.SUCCESS;
