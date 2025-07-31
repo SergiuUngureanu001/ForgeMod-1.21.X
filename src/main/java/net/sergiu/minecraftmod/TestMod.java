@@ -29,6 +29,7 @@ import net.sergiu.minecraftmod.entity.client.TriceratopsRenderer;
 import net.sergiu.minecraftmod.entity.client.ZarathustraRenderer;
 import net.sergiu.minecraftmod.item.ModCreativeModeTabs;
 import net.sergiu.minecraftmod.item.ModItems;
+import net.sergiu.minecraftmod.loot.ModLootModifiers;
 import net.sergiu.minecraftmod.particle.AlexandriteParticles;
 import net.sergiu.minecraftmod.particle.ModParticles;
 import net.sergiu.minecraftmod.potion.ModPotions;
@@ -69,6 +70,7 @@ public class TestMod {
         ModEntities.register(modEventBus);
         ModVillagers.register(modEventBus);
         ModParticles.register(modEventBus);
+        ModLootModifiers.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

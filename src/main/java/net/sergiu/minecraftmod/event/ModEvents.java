@@ -127,7 +127,7 @@ public class ModEvents {
 
                 // 2) compute the two-blocks-behind vector
                 Vec3 look   = player.getLookAngle().normalize();
-                double dist = 2.0;
+                double dist = 4.0;
                 double rawX = player.getX() - look.x * dist;
                 double rawY = player.getEyeY() - 0.5;       // chest-height
                 double rawZ = player.getZ() - look.z * dist;
