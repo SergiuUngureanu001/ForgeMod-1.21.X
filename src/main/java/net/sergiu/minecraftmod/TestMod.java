@@ -31,6 +31,7 @@ import net.sergiu.minecraftmod.item.ModItems;
 import net.sergiu.minecraftmod.potion.ModPotions;
 import net.sergiu.minecraftmod.sound.ModSounds;
 import net.sergiu.minecraftmod.util.ModItemProperties;
+import net.sergiu.minecraftmod.villager.ModVillagers;
 import org.slf4j.Logger;
 
 // Test
@@ -63,6 +64,7 @@ public class TestMod {
         ModPotions.register(modEventBus);
         ModEnchantmentEffects.register(modEventBus);
         ModEntities.register(modEventBus);
+        ModVillagers.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

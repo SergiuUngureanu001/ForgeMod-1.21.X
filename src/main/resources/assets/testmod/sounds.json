@@ -53,7 +53,8 @@
   "zarathustra_angry": {
     "subtitle": "sounds.testmod.zarathustra_angry",
     "sounds": [
-      "testmod:zarathustra_angry"
+      "testmod:zarathustra_angry",
+      "testmod:zarathustra_laugh"
     ]
   },
   "zarathustra_hurt": {

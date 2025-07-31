@@ -30,6 +30,7 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> ZARATHUSTRA_HURT = registerSoundEvent("zarathustra_hurt");
     public static final RegistryObject<SoundEvent> ZARATHUSTRA_QUESTION = registerSoundEvent("zarathustra_question");
     public static final RegistryObject<SoundEvent> ZARATHUSTRA_DEATH = registerSoundEvent("zarathustra_death");
+    public static final RegistryObject<SoundEvent> ZARATHUSTRA_LAUGH = registerSoundEvent("zarathustra_laugh");
 
     public static final ForgeSoundType MAGIC_BLOCK_SOUNDS = new ForgeSoundType(1f, 1f,
             ModSounds.MAGIC_BLOCK_BREAK, ModSounds.MAGIC_BLOCK_STEP, ModSounds.MAGIC_BLOCK_PLACE,

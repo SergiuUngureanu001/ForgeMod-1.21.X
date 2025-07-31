@@ -68,6 +68,8 @@
   "block.testmod.pickle_sapling": "Pickle Sapling",
   "block.testmod.chair": "Chair",
 
+  "entity.minecraft.villager.testmod.kaupenger": "Kaupenger",
+
   "effect.testmod.slimey": "Slimey",
 
   "enchantment.testmod.lightning_striker": "Lightning Striker",
