@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -20,6 +21,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.sergiu.minecraftmod.block.ModBlocks;
 import net.sergiu.minecraftmod.block.entity.ModBlockEntities;
+import net.sergiu.minecraftmod.block.entity.renderer.PedestalBlockEntityRenderer;
 import net.sergiu.minecraftmod.component.ModDataComponentTypes;
 import net.sergiu.minecraftmod.effect.ModEffects;
 import net.sergiu.minecraftmod.enchantment.ModEnchantmentEffects;
@@ -133,6 +135,11 @@ public class TestMod {
         @SubscribeEvent
         public static void registerParticleProvider(RegisterParticleProvidersEvent event) {
             event.registerSpriteSet(ModParticles.ALEXANDRITE_PARTICLES.get(), AlexandriteParticles.Provider::new);
+        }
+
+        @SubscribeEvent
+        public static void registerBER(EntityRenderersEvent.RegisterRenderers event) {
+            event.registerBlockEntityRenderer(ModBlockEntities.PEDESTAL_BE.get(), PedestalBlockEntityRenderer::new);
         }
     }
 }
