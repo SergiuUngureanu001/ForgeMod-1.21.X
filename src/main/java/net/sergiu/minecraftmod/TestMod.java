@@ -19,6 +19,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.sergiu.minecraftmod.block.ModBlocks;
+import net.sergiu.minecraftmod.block.entity.ModBlockEntities;
 import net.sergiu.minecraftmod.component.ModDataComponentTypes;
 import net.sergiu.minecraftmod.effect.ModEffects;
 import net.sergiu.minecraftmod.enchantment.ModEnchantmentEffects;
@@ -71,6 +72,7 @@ public class TestMod {
         ModVillagers.register(modEventBus);
         ModParticles.register(modEventBus);
         ModLootModifiers.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
 
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);

@@ -148,6 +148,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> CHAIR = registerBlock("chair",
             () -> new ChairBlock(BlockBehaviour.Properties.of().noOcclusion().noLootTable()));
 
+    public static final RegistryObject<Block> PEDESTAL = registerBlock("pedestal",
+            () -> new PedestalBlock(BlockBehaviour.Properties.of().noOcclusion().noLootTable()));
+
 
 
 
